@@ -393,6 +393,94 @@
         width: 95%; /* Margens laterais em mobile */
     }
 }
+
+        .modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-container {
+  background: white;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  padding: 2rem;
+  transform: scale(0.9);
+  animation: modalIn 0.3s ease-out forwards;
+}
+
+@keyframes modalIn {
+  to { transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #666;
+  transition: transform 0.3s;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.modal-options {
+  display: grid;
+  gap: 1rem;
+}
+
+.modal-option {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.modal-option span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.modal-option:hover {
+  background: #d35400;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .modal-option span {
+    font-size: 1rem;
+  }
+}
     </style>
 </head>
 <body>
@@ -414,7 +502,7 @@
         <div class="hero-content">
             <h1>Soluções em Transporte e Logística</h1>
             <p>MUNCK rápido, seguro e eficiente para toda São Paulo</p>
-            <a href="#contato" class="cta-button">Solicitar Orçamento</a>
+            <a href="#" class="cta-button">Solicitar Orçamento</a>
         </div>
     </section>
 
@@ -467,6 +555,23 @@
         <p>Radec Transportes © 2025 - Todos os direitos reservados</p>
         <p>Contato: (11) 96340-7402 | Email: contato@radec.com.br</p>
     </footer>
+
+    <div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3>Selecione o Tipo de Serviço</h3>
+      <button class="modal-close">&times;</button>
+    </div>
+    <div class="modal-options">
+      <button class="modal-option" data-service="manejamento">
+        <span>🏗️ Manejamento de Máquinas ou Estruturas</span>
+      </button>
+      <button class="modal-option" data-service="transporte">
+        <span>🚚 Transporte Geral</span>
+      </button>
+    </div>
+  </div>
+</div>
 
     <!-- Adicione antes do </body> -->
 <a href="https://wa.me/5511963407402?text=Olá,%20gostaria%20de%20um%20orçamento" 
@@ -538,7 +643,39 @@
         });
 
 
+        
     </script>
+    <script>
+// Modal Handling
+const ctaButton = document.querySelector('.cta-button');
+const modalBackdrop = document.getElementById('modalBackdrop');
+const whatsappBase = 'https://wa.me/5511963407402?text=';
+
+const services = {
+  manejamento: encodeURIComponent('Olá Radec! Gostaria de solicitar um orçamento para *Manejamento de Máquinas/Estruturas*. Podem me ajudar?'),
+  transporte: encodeURIComponent('Olá Radec! Preciso de um orçamento para *Transporte Geral de Cargas*. Poderia me enviar mais informações?')
+};
+
+ctaButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  modalBackdrop.style.display = 'flex';
+});
+
+modalBackdrop.addEventListener('click', (e) => {
+  if (e.target === modalBackdrop || e.target.closest('.modal-close')) {
+    modalBackdrop.style.display = 'none';
+  }
+});
+
+document.querySelectorAll('.modal-option').forEach(button => {
+  button.addEventListener('click', () => {
+    const service = button.dataset.service;
+    window.open(`${whatsappBase}${services[service]}`, '_blank');
+    modalBackdrop.style.display = 'none';
+  });
+});
+</script>
+
     
 </body>
 </html>
