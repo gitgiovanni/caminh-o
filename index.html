@@ -238,24 +238,43 @@
         }
 
 
-        .cta-button {
-            display: inline-block;
-            background: #e67e22;
-            color: white;
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
+      .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25d366;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid #1ebe5d;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    font-size: 1.1rem;
+}
 
-        .cta-button:hover {
-            background: transparent;
-            border-color: #e67e22;
-            transform: translateY(-3px);
-        }
+.cta-button:hover {
+    background: #1ebe5d;
+    transform: scale(1.02);
+    box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+}
 
+.cta-button img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+        @media (max-width: 768px) {
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .cta-button img {
+        width: 20px;
+        height: 20px;
+    }
+}
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -529,7 +548,12 @@
         <div class="hero-content">
             <h1>Soluções em Transporte e Logística</h1>
             <p>MUNCK rápido, seguro e eficiente para toda São Paulo</p>
-            <a href="#" class="cta-button">Solicitar Orçamento</a>
+            <a href="#" class="cta-button">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" 
+         alt="WhatsApp" 
+         class="whatsapp-icon">
+    Solicitar Orçamento
+</a>
         </div>
     </section>
 
