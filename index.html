@@ -13,6 +13,24 @@
             font-family: 'Arial', sans-serif;
         }
 
+        /* Adicione ao CSS */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
        header {
             background: #1a2a3a;
             padding: 0 2rem;
@@ -336,6 +354,15 @@
         <p>Contato: (11) 9999-9999 | Email: contato@radec.com.br</p>
     </footer>
 
+    <!-- Adicione antes do </body> -->
+<a href="https://wa.me/5511963407402?text=Olá,%20gostaria%20de%20um%20orçamento" 
+   target="_blank" 
+   class="whatsapp-float">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" 
+         alt="WhatsApp" 
+         class="whatsapp-icon">
+    <span>Orçar via WhatsApp</span>
+</a>
     <script>
         // Smooth scroll para os links de navegação
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -376,5 +403,6 @@
             this.reset();
         });
     </script>
+    
 </body>
 </html>
