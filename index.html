@@ -314,26 +314,37 @@
         }
         }
 
-        .sobre-content {
-    position: relative;
+/* Seção Sobre Nós */
+#sobre {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+.sobre-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo interno */
 }
 
 .sobre-img {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px; /* Largura máxima controlada */
     height: 500px;
-    background-position: center center !important;
-    background-size: cover !important;
+    background: url('imagens/sobre.jpg') center center/cover no-repeat;
     border-radius: 10px;
+    margin: 0 auto; /* Centralização horizontal extra */
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 768px) {
     .sobre-img {
         height: 300px;
+        width: 95%; /* Margens laterais em mobile */
     }
 }
     </style>
