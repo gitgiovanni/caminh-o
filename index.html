@@ -580,6 +580,108 @@ nav a, .cta-button, .modal-option {
         height: calc(var(--vh, 1vh) * 100 - 80px);
     }
 }
+        .slideshow-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.slideshow-inner {
+    position: relative;
+    height: 70vh;
+    min-height: 400px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.slideshow-prev,
+.slideshow-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.slideshow-prev:hover,
+.slideshow-next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.slideshow-prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.slideshow-next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.slideshow-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.slideshow-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slideshow-dots .dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .slideshow-inner {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .slideshow-prev,
+    .slideshow-next {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -640,30 +742,78 @@ nav a, .cta-button, .modal-option {
     </section>
 
     <section id="galeria">
-        <h2 class="section-title">Nossas fotos</h2>
-        <div class="galeria-grid">
-            <div class="galeria-item" style="background-image: url('cami1.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami2.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami3.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami4.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami5.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami6.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami7.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami8.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami9.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami10.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami11.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami12.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami13.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami14.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami15.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami16.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami17.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami18.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami19.jpg')"></div>
-            <div class="galeria-item" style="background-image: url('cami20.jpg')"></div>
+    <h2 class="section-title">Nossas fotos</h2>
+    <div class="slideshow-container">
+        <div class="slideshow-inner">
+            <!-- Slides -->
+<div class="slide active">
+    <img data-src="cami1.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami2.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami3.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami4.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami5.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami6.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami7.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami8.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami9.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami10.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami11.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami12.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami13.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami14.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami15.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami16.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami17.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami18.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami19.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+<div class="slide">
+    <img data-src="cami20.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+</div>
+
            
-        </div>
+                <button class="slideshow-prev">❮</button>
+        <button class="slideshow-next">❯</button>
+        
+        <!-- Indicadores de pontos -->
+        <div class="slideshow-dots"></div>
+    </div>
     </section>
 
 
@@ -730,6 +880,113 @@ function handleTouchMove(evt) {
 
 window.addEventListener('resize', setVH);
 setVH();
+</script>
+
+    <script>
+// Adicione este script após o existente
+document.addEventListener('DOMContentLoaded', () => {
+    // Slideshow
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('.slideshow-dots');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    // Inicializar dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    // Carregamento lazy de imagens
+    const lazyLoad = (slideIndex) => {
+        const slide = slides[slideIndex];
+        const img = slide.querySelector('img');
+        if (!img.src && img.dataset.src) {
+            img.src = img.dataset.src;
+        }
+    };
+
+    // Navegação
+    function goToSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        dotsContainer.children[currentSlide].classList.remove('active');
+        currentSlide = (n + slides.length) % slides.length;
+        lazyLoad(currentSlide);
+        slides[currentSlide].classList.add('active');
+        dotsContainer.children[currentSlide].classList.add('active');
+    }
+
+    // Controles
+    document.querySelector('.slideshow-prev').addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        goToSlide(currentSlide - 1);
+        startAutoSlide();
+    });
+
+    document.querySelector('.slideshow-next').addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        goToSlide(currentSlide + 1);
+        startAutoSlide();
+    });
+
+    // Auto avanço
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+    }
+
+    // Iniciar com primeiro slide carregado
+    lazyLoad(0);
+    startAutoSlide();
+
+    // Swipe para mobile
+    let touchStartX = 0;
+    const slideshowInner = document.querySelector('.slideshow-inner');
+    
+    slideshowInner.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+    }, false);
+
+    slideshowInner.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            clearInterval(autoSlideInterval);
+            if (diff > 0) {
+                goToSlide(currentSlide + 1);
+            } else {
+                goToSlide(currentSlide - 1);
+            }
+            startAutoSlide();
+        }
+    }, false);
+
+    // Atualizar lightbox para novas imagens
+    document.querySelectorAll('.slide').forEach(slide => {
+        slide.addEventListener('click', function() {
+            const imgSrc = this.querySelector('img').src;
+            const lightbox = document.createElement('div');
+            lightbox.style.position = 'fixed';
+            lightbox.style.top = 0;
+            lightbox.style.left = 0;
+            lightbox.style.width = '100%';
+            lightbox.style.height = '100%';
+            lightbox.style.backgroundColor = 'rgba(0,0,0,0.8)';
+            lightbox.style.display = 'flex';
+            lightbox.style.justifyContent = 'center';
+            lightbox.style.alignItems = 'center';
+            lightbox.style.cursor = 'pointer';
+            lightbox.innerHTML = `<img src="${imgSrc}" style="max-width: 90%; max-height: 90%; object-fit: contain;">`;
+            
+            lightbox.addEventListener('click', () => lightbox.remove());
+            document.body.appendChild(lightbox);
+        });
+    });
+});
 </script>
     <script>
 
