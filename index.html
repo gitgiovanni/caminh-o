@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Radec Transportes - Soluções em transporte rodoviário e logística integrada">
     <title>Radec - Transportes e Logística</title>
+    <link rel="icon" type="image/x-icon" href="imagens/camiLOGO.jpg" sizes="32x32">
     <style>
 :root {
     --primary-color: #e67e22;
@@ -31,7 +32,7 @@ body {
     overflow-x: hidden;
     max-width: 100vw;
     background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
-                url('backroad.png') center/cover fixed;
+                url('imagens/backroad.png') center/cover fixed;
     background-blend-mode: soft-light;
 }
 
@@ -58,10 +59,13 @@ header {
 }
 
 .logo {
-    width: 120px;
-    height: 60px;
-    background: url('camiLOGO.jpg') center/contain no-repeat;
+    width: 130px;
+    height: 70px;
+    background: url('imagens/camiLOGO.jpg') center/contain no-repeat;
     transition: transform 0.3s;
+    background-color: transparent;
+    border: none;
+    background-size: 100% auto;
 }
 
 .logo:hover {
@@ -107,7 +111,7 @@ nav a:hover {
     height: 80vh;
     min-height: 600px;
     background: linear-gradient(45deg, rgba(26,42,58,0.85), rgba(230,126,34,0.8)),
-                url('cami1.jpg') center/cover;
+                url('imagens/cami1.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -683,7 +687,61 @@ nav a, .cta-button, .modal-option {
     }
 }
     </style>
+    <style>
+/* Adicionar ao CSS existente */
+header.scrolled {
+    height: 60px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    background: rgba(26,42,58,0.98);
+}
+
+header {
+    transition: all 0.3s ease;
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-left { animation: slideLeft 0.6s ease-out; }
+.animate-right { animation: slideRight 0.6s ease-out; }
+
+.servico-card {
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.servico-card.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.galeria-item {
+    transform: scale(0.95);
+    transition: all 0.4s ease;
+}
+
+.galeria-item.visible {
+    transform: scale(1);
+}
+</style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFEXG4NEJV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFEXG4NEJV');
+</script>
 <body>
    <header>
         <div class="logo-container">
@@ -715,7 +773,7 @@ nav a, .cta-button, .modal-option {
     <section id="sobre">
         <h2 class="section-title">Sobre Nós</h2>
         <div class="sobre-content">
-            <div class="sobre-img" style="background-image: url('cami1.jpg'); height: 400px; margin-bottom: 2rem;"></div>
+            <div class="sobre-img" style="background-image: url('imagens/cami1.jpg'); height: 400px; margin-bottom: 2rem;"></div>
             <p>Há mais de 30 anos no mercado de transporte rodoviário, a Radec oferece soluções logísticas completas com segurança e pontualidade...</p>
         </div>
     </section>
@@ -724,17 +782,17 @@ nav a, .cta-button, .modal-option {
         <h2 class="section-title">Nossos Serviços</h2>
         <div class="servicos-grid">
             <div class="servico-card">
-                <div class="servico-img" style="background-image: url('cami4.jpg')"></div>
+                <div class="servico-img" style="background-image: url('imagens/cami4.jpg')"></div>
                 <h3>Carga Geral</h3>
                 <p>Transporte de cargas diversas em toda São Paulo</p>
             </div>
             <div class="servico-card">
-                <div class="servico-img" style="background-image: url('cami8.jpg')"></div>
+                <div class="servico-img" style="background-image: url('imagens/cami8.jpg')"></div>
                 <h3>Movimento de máquinas/peças pesadas</h3>
                 <p>Posicionamento de máquinas ou estruturas pesadas</p>
             </div>
             <div class="servico-card">
-                <div class="servico-img" style="background-image: url('cami6.jpg')"></div>
+                <div class="servico-img" style="background-image: url('imagens/cami6.jpg')"></div>
                 <h3>Remoção/Transporte de esculturas</h3>
                 <p>Movimentação, transporte e entrega de esculturas</p>
             </div>
@@ -745,66 +803,67 @@ nav a, .cta-button, .modal-option {
     <h2 class="section-title">Nossas fotos</h2>
     <div class="slideshow-container">
         <div class="slideshow-inner">
+
             <!-- Slides -->
-<div class="slide active">
-    <img data-src="cami1.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+            <div class="slide active">
+                <img data-src="imagens/cami6.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+            </div>
+<div class="slide">
+    <img data-src="imagens/cami1.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami2.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami2.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami3.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami3.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami4.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami4.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami5.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami5.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami6.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami7.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami7.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami8.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami8.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami9.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami9.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami10.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami10.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami11.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami11.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami12.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami12.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami13.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami13.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami14.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami14.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami15.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami15.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami16.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami16.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami17.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami17.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami18.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami18.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami19.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 <div class="slide">
-    <img data-src="cami19.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
-</div>
-<div class="slide">
-    <img data-src="cami20.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
+    <img data-src="imagens/cami20.jpg" loading="lazy" alt="Nossos trabalhos" class="slide-image">
 </div>
 
            
@@ -819,8 +878,8 @@ nav a, .cta-button, .modal-option {
 
 
     <footer>
-        <p>Radec Transportes © 2025 - Todos os direitos reservados</p>
-        <p>Contato: (11) 96340-7402 | Email: contato@radec.com.br</p>
+        <p>Radec Transportes © 2025</p>
+        <p>Contato: (11) 98319-9545 | Email: radec.transporte@gmail.com</p>
     </footer>
 
     <div class="modal-backdrop" id="modalBackdrop">
@@ -831,7 +890,7 @@ nav a, .cta-button, .modal-option {
     </div>
     <div class="modal-options">
       <button class="modal-option" data-service="manejamento">
-        <span>🏗️ Manejamento de Máquinas ou Estruturas</span>
+        <span>🏗️ Remoção de Máquinas ou Estruturas</span>
       </button>
       <button class="modal-option" data-service="transporte">
         <span>🚚 Transporte Geral</span>
@@ -849,6 +908,75 @@ nav a, .cta-button, .modal-option {
          class="whatsapp-icon">
     <span>Orçar via WhatsApp</span>
 </a>
+
+    <script>
+// Adicionar no início do script existente
+document.addEventListener('DOMContentLoaded', function() {
+    // Efeito de parallax no hero
+    const hero = document.querySelector('.hero');
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+    });
+
+    // Header dinâmico
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        // Esconder/mostrar header no scroll
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        
+        // Efeito de sombra no header
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Barra de progresso do scroll
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: var(--primary-color);
+        z-index: 9999;
+        transition: width 0.2s ease-out;
+    `;
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+
+    // Animação aprimorada com direções diferentes
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const direction = entry.target.dataset.animate || 'up';
+                entry.target.classList.add('visible', `animate-${direction}`);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.animate').forEach(el => {
+        observer.observe(el);
+    });
+});
+</script>
     <script>
 // Altura Dinâmica
 function setVH() {
@@ -1058,7 +1186,7 @@ const modalBackdrop = document.getElementById('modalBackdrop');
 const whatsappBase = 'https://wa.me/5511983199545?text=';
 
 const services = {
-  manejamento: encodeURIComponent('Olá Radec! Gostaria de solicitar um orçamento para *Manejamento de Máquinas/Estruturas*. Podem me ajudar?'),
+  manejamento: encodeURIComponent('Olá Radec! Gostaria de solicitar um orçamento para *Remoção de Máquinas/Estruturas*. Podem me ajudar?'),
   transporte: encodeURIComponent('Olá Radec! Preciso de um orçamento para *Transporte Geral de Cargas*. Poderia me enviar mais informações?')
 };
 
